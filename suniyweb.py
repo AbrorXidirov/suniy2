@@ -21,7 +21,7 @@ make_model = st.selectbox('Avtomabil modeli', ['Audi A3', 'BMW X5', 'Mercedes Be
 gearing_type = st.selectbox('Uzatish turi', ['Automatic', 'Manual'])
 
 # Model yordamida narxni bashorat qilish
-if st.button('Predict Price'):
+if st.button('Narxni bashorat qilish'):
     # Kirish qiymatlari
     my_dict = {
         "hp_kW": hp_kW,
@@ -52,4 +52,4 @@ if st.button('Predict Price'):
     predicted_price = final_model.predict(my_dict_scaled)
 
     # Natijani chiqarish
-    st.write(f'The predicted price for the car is: ${predicted_price[0]:,.2f}')
+    st.write(f'Bashorat qilingan narx: ${predicted_price[0]:,.2f}')
