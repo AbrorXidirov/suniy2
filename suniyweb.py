@@ -15,7 +15,7 @@ st.title('Avtomabil narxini bashorat qilish')
 
 # Foydalanuvchi uchun inputlar
 hp_kW = st.number_input('Ot kuchi (kW)', min_value=0, max_value=1000, value=66)
-age = st.number_input('Yili (years)', min_value=0, max_value=50, value=2)
+age = st.number_input('haydalgan yili (years)', min_value=0, max_value=50, value=2)
 km = st.number_input('Yurgan masofasi', min_value=0, max_value=500000, value=17000)
 make_model = st.selectbox('Avtomabil modeli', ['Audi A3', 'BMW X5', 'Mercedes Benz A-Class', 'Toyota Corolla'])
 gearing_type = st.selectbox('Uzatish turi', ['Automatic', 'Manual'])
