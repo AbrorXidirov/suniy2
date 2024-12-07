@@ -2,9 +2,12 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-# Modelni yuklash
+# Modelni yuklash (GridSearchCV bilan eng yaxshi modelni olish)
 with open('lasso_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+    grid_search = pickle.load(file)
+
+# GridSearchCV obyekti ustida eng yaxshi modelni olish
+model = grid_search.best_estimator_
 
 # Foydalanuvchidan ma'lumotlarni olish
 st.title('Car Price Prediction')
