@@ -11,17 +11,17 @@ with open('final_scaler.pkl', 'rb') as file:
     final_scaler = pickle.load(file)
 
 # Kiritish maydonlari
-st.title('Car Price Prediction')
+st.title('Avtomobil Narxini Bashorat Qilish')
 
 # Foydalanuvchi uchun inputlar
-hp_kW = st.number_input('Horsepower (kW)', min_value=0, max_value=1000, value=66)
-age = st.number_input('Age (years)', min_value=0, max_value=50, value=2)
-km = st.number_input('Kilometers driven', min_value=0, max_value=500000, value=17000)
-make_model = st.selectbox('Make and Model', ['Audi A3', 'BMW X5', 'Mercedes Benz A-Class', 'Toyota Corolla'])
-gearing_type = st.selectbox('Gearing Type', ['Automatic', 'Manual'])
+hp_kW = st.number_input('Ot kuchi (kW)', min_value=0, max_value=1000, value=66)
+age = st.number_input('Ishlab chiqarilganiga qancha bo'lgan (yil)', min_value=0, max_value=50, value=2)
+km = st.number_input('Yurilgan masofa (km)', min_value=0, max_value=500000, value=17000)
+make_model = st.selectbox('Marka va Model', ['Audi A3', 'BMW X5', 'Mercedes Benz A-Class', 'Toyota Corolla'])
+gearing_type = st.selectbox('Uzatish turi', ['Avtomatik', 'Qo'lda'])
 
 # Model yordamida narxni bashorat qilish
-if st.button('Predict Price'):
+if st.button('Narxni bashorat qilish'):
     # Kirish qiymatlari
     my_dict = {
         "hp_kW": hp_kW,
@@ -38,8 +38,6 @@ if st.button('Predict Price'):
     my_dict = pd.get_dummies(my_dict)
 
     # X.columns bilan moslashtirish
-    # X.columns - bu treningda ishlatilgan ustunlar
-    # Bu qadamni faqatgina agar sizda treningda ishlatilgan ustunlar bo'lsa qilish kerak
     my_dict = my_dict.reindex(columns=['hp_kW', 'km', 'age', 'make_model_Audi A1', 'make_model_Audi A3',
                                        'make_model_Opel Astra', 'make_model_Opel Corsa', 'make_model_Opel Insignia',
                                        'make_model_Renault Clio', 'make_model_Renault Duster', 'make_model_Renault Espace',
@@ -52,4 +50,4 @@ if st.button('Predict Price'):
     predicted_price = final_model.predict(my_dict_scaled)
 
     # Natijani chiqarish
-    st.write(f'The predicted price for the car is: ${predicted_price[0]:,.2f}')
+    st.write(f'Avtomobilning bashorat qilingan narxi: ${predicted_price[0]:,.2f}')
