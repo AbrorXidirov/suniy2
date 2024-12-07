@@ -17,13 +17,13 @@ make_model = st.selectbox('Make and Model', ['Audi A3', 'BMW X5', 'Mercedes Benz
 gearing_type = st.selectbox('Gearing Type', ['Automatic', 'Manual'])
 
 # Kategorik o'zgaruvchilarni one-hot encoding yordamida o'zgartirish
-make_model_audi = (make_model == 'Audi A3').astype(int)
-make_model_bmw = (make_model == 'BMW X5').astype(int)
-make_model_mercedes = (make_model == 'Mercedes Benz A-Class').astype(int)
-make_model_toyota = (make_model == 'Toyota Corolla').astype(int)
+make_model_audi = 1 if make_model == 'Audi A3' else 0
+make_model_bmw = 1 if make_model == 'BMW X5' else 0
+make_model_mercedes = 1 if make_model == 'Mercedes Benz A-Class' else 0
+make_model_toyota = 1 if make_model == 'Toyota Corolla' else 0
 
-gearing_type_automatic = (gearing_type == 'Automatic').astype(int)
-gearing_type_manual = (gearing_type == 'Manual').astype(int)
+gearing_type_automatic = 1 if gearing_type == 'Automatic' else 0
+gearing_type_manual = 1 if gearing_type == 'Manual' else 0
 
 # Kirish ma'lumotlarini DataFrame formatida tayyorlash
 input_data = pd.DataFrame({
