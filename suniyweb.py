@@ -4,7 +4,7 @@ from sklearn.preprocessing import MinMaxScaler
 import pickle
 
 # Modelni va scalerni yuklash
-with open('final_model.pkl', 'rb') as file:
+with open('lasso_model.pkl', 'rb') as file:
     final_model = pickle.load(file)
 
 with open('final_scaler.pkl', 'rb') as file:
