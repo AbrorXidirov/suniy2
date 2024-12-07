@@ -25,18 +25,18 @@ make_model = st.selectbox('Make and Model', ['Audi A1', 'Audi A3', 'Opel Astra',
 gearing_type = st.selectbox('Gearing Type', ['Automatic', 'Manual', 'Semi-automatic'])
 
 # Kategorik o'zgaruvchilarni one-hot encoding yordamida o'zgartirish
-make_model_audi_a1 = 1 if make_model == 'Audi A1' else 0
-make_model_audi_a3 = 1 if make_model == 'Audi A3' else 0
-make_model_opel_astra = 1 if make_model == 'Opel Astra' else 0
-make_model_opel_corsa = 1 if make_model == 'Opel Corsa' else 0
-make_model_opel_insignia = 1 if make_model == 'Opel Insignia' else 0
-make_model_renault_clio = 1 if make_model == 'Renault Clio' else 0
-make_model_renault_duster = 1 if make_model == 'Renault Duster' else 0
-make_model_renault_espace = 1 if make_model == 'Renault Espace' else 0
+make_model_audi_a1 = True if make_model == 'Audi A1' else False
+make_model_audi_a3 = True if make_model == 'Audi A3' else False
+make_model_opel_astra = True if make_model == 'Opel Astra' else False
+make_model_opel_corsa = True if make_model == 'Opel Corsa' else False
+make_model_opel_insignia = True if make_model == 'Opel Insignia' else False
+make_model_renault_clio = True if make_model == 'Renault Clio' else False
+make_model_renault_duster = True if make_model == 'Renault Duster' else False
+make_model_renault_espace = True if make_model == 'Renault Espace' else False
 
-gearing_type_automatic = 1 if gearing_type == 'Automatic' else 0
-gearing_type_manual = 1 if gearing_type == 'Manual' else 0
-gearing_type_semi_automatic = 1 if gearing_type == 'Semi-automatic' else 0
+gearing_type_automatic = True if gearing_type == 'Automatic' else False
+gearing_type_manual = True if gearing_type == 'Manual' else False
+gearing_type_semi_automatic = 1 if gearing_type == 'Semi-automatic' else False
 
 # Kirish ma'lumotlarini DataFrame formatida tayyorlash
 input_data = pd.DataFrame({
