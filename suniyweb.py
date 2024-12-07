@@ -49,7 +49,7 @@ if st.button('Predict Price'):
     my_dict_scaled = final_scaler.transform(my_dict)
 
     # Model yordamida narxni bashorat qilish
-    predicted_price = 'lasso_model.predict(my_dict_scaled)
+    predicted_price = final_model.predict(my_dict_scaled)
 
     # Natijani chiqarish
     st.write(f'The predicted price for the car is: ${predicted_price[0]:,.2f}')
